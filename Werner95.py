@@ -11,6 +11,9 @@ deposition, following which another slab is
 chosen randomly for transport. This procedure is repeated to construct the
 time evolution of the surface. Slab movement not parallel to the transport
 direction originates only from enforcement of the angle of repose.
+
+The MIT License (MIT)
+Copyright (c) 2016 Evan B. Goldstein
 """
 import time
 start_time = time.time()
