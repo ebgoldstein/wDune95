@@ -6,7 +6,7 @@ in the transport direction and is deposited at this site with a probability
 that depends upon the presence/absence of sand slabs.
 
 If the slab is not deposited, then it repeatedly is moved to other sites
-(specified by thesaltation distance) in the transport direction until
+(specified by the saltation distance) in the transport direction until
 deposition, following which another slab is
 chosen randomly for transport. This procedure is repeated to construct the
 time evolution of the surface. Slab movement not parallel to the transport
@@ -36,7 +36,12 @@ each=15
 
 #make the domain and spread them equally (with a random component)
 D=np.random.random_integers(0,1,[L,L])+each
-np.savetxt("grid.txt", D)
+np.savetxt("Tgrid.txt", D)
+
+#Veg grid
+V=np.zeros((L, L))
+np.savetxt("Vgrid.txt", V)
+
 #Saltation Length
 Salt=1
 
@@ -206,7 +211,7 @@ for t in timesteps:
 
 
 #plt.matshow(D)
-Di = np.genfromtxt("grid.txt")
+Di = np.genfromtxt("Tgrid.txt")
 #plt.matshow(Di-D)
 Dchange=Di-D
 
