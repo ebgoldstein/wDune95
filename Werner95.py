@@ -25,22 +25,41 @@ import numpy as np
 Tmax=1;
 timesteps=np.arange(1,(Tmax+1));
 
-# define the domain size
-L=1000;
-Li=L-1
+################
+####Initial Conditions, must be a square grid now... 
+#predefined grid (1) or from scratch (0)?
+IC=1;
 
-#how many slabs in the domain
-#SlabsinD=1000000000;
-#How many slabs per cell
-each=15
+if IC == 1:
+	
+	#the sediment grid
+	D=np.genfromtxt("topoIC.csv", delimiter=",")
+	
+	#the veg grid
+	V=np.genfromtxt("vegIC.csv", delimiter=",")
+	
+	
+	#find the dimensions
+	L=np.sqrt(D.size)
+	Li=L-1;
+	
+else:
+	# define the domain size
+	L=100;
+	Li=L-1
 
-#make the domain and spread them equally (with a random component)
-D=np.random.random_integers(0,1,[L,L])+each
-np.savetxt("Tgrid.txt", D)
+	#How many slabs per cell
+	each=15
 
-#Veg grid
-V=np.zeros((L, L))
-np.savetxt("Vgrid.txt", V)
+	#make the domain and spread some slabs equally (with a random component)
+	D=np.random.random_integers(0,1,[L,L])+each
+	np.savetxt("Tgrid.txt", D)
+
+	#Veg grid
+	V=np.zeros((L, L))
+	np.savetxt("Vgrid.txt", V)
+
+################
 
 #Saltation Length
 Salt=1
