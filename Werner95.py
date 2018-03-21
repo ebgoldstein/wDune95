@@ -56,7 +56,7 @@ movedslabs=0
 for t in timesteps:
 
     #pick the random cell orders for each single  timestep(which has L**2 moves)
-    Picks=np.random.random_integers(0,99,[2,L**2])
+    Picks=np.random.random_integers(0,Li,[2,L**2])
     for R,C in np.nditer([Picks[0,:],Picks[1,:],]):
 
     #if there is a slab at the site, pick it up
